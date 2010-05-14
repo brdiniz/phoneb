@@ -22,6 +22,19 @@ class PhonesController < ApplicationController
     @phone = @user.phones.find_by_id(params[:id])
   end
   
+  def update
+    @phone = @user.phones.find_by_id(params[:id])
+    respond_to do |format|
+      @phone.update_attributes(params[:phone])
+      if @phone.save
+        flash[:notice] = "Alteração de Telefone realizada com sucesso!"
+        format.html { redirect_to(root_path) }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+  
   def find_phone
     @phone = Phone.find_by_id(params[:id]) if params[:id]
   end
