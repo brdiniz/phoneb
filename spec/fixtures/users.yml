@@ -1,0 +1,28 @@
+user1:
+  twitter_id: "61232816"
+  login: "brdiniz"
+  access_token: "61232816-844ijckTVlyKa9jEz38qWI7HxsNlhQmNpuXlPaps"
+  access_secret: "z4YBWPXCSb0aLlckBfKpi4P9aTh75HxtanyE0OPtgjY"
+  remember_token: "94c102124e5707b7b594"
+  remember_token_expires_at: "2010-05-15 14:50:54"
+  name: "Bruno Diniz"
+  location: "Brazil"
+  description: ""
+  profile_image_url: "http://a3.twimg.com/profile_images/375694897/n17606..."
+  url: nil
+  protected: false
+  profile_background_color: "C6E2EE"
+  profile_sidebar_fill_color: "DAECF4"
+  profile_link_color: "1F98C7"
+  profile_sidebar_border_color: "C6E2EE"
+  profile_text_color: "663B12"
+  profile_background_image_url: "http://s.twimg.com/a/1272477713/images/themes/theme..."
+  profile_background_tiled: nil
+  friends_count: 62
+  statuses_count: 59
+  followers_count: 30
+  favourites_count: 0
+  utc_offset: -10800
+  time_zone: "Brasilia"
+  created_at: "2010-05-01 14:39:16" 
+  updated_at: "2010-05-01 14:50:54"
