@@ -1,0 +1,51 @@
+pt_br:
+  web-app-theme: 
+    save: Salvar
+    cancel: Cancelar
+    list: Listar
+    edit: Alterar
+    new: Criar
+    show: Exibir
+    delete: Excluir
+    confirm: Você tem certeza?
+    created_at: Criado em
+    all: Lista de
+  flash:
+    actions:
+      create:
+        notice: "Criação de {{resource_name}} realizada com sucesso!"
+      update:
+        notice: "Alteração de {{resource_name}} realizada com sucesso!"
+      destroy:
+        notice: "Exclusão de {{resource_name}} realizada com sucesso!"
+  activerecord:
+    models:
+      group: Grupo
+      groups: Grupos
+      contact: Contato
+      contacts: Contatos
+    errors: 
+      template:
+        body: "Os seguintes erros impediram esta operação:"
+        header: "Ocorreram erros nesta operação!"
+      messages:
+        blank: "é um campo obrigatório"
+        taken: "já existe"
+        too_long: "é muito longo (não mais do que {{count}} caracteres)"
+        too_short: "é muito curto (não menos do que {{count}} caracteres)"
+        invalid: "não é válido"
+        record_invalid: "o valor não faz parte dos valores possíveis"
+        inclusion: "não está incluso na lista"
+        exclusion: "não está disponível"
+        confirmation: "não bate com a confirmação"
+        accepted: "precisa ser aceito"
+        empty: "não pode ser vazio"
+        wrong_length: "não é do tamanho correto (precisa ter {{count}} caracteres)"
+        not_a_number: "não é um número"
+        greater_than: "precisa ser maior do que {{count}}"
+        greater_than_or_equal_to: "precisa ser maior ou igual a {{count}}"
+        equal_to: "precisa ser igual a {{count}}"
+        less_than: "precisa ser menor do que {{count}}"
+        less_than_or_equal_to: "precisa ser menor ou igual a {{count}}"
+        odd: "precisa ser ímpar"
+        even: "precisa ser par"

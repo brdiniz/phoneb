@@ -9,15 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100514124932) do
+ActiveRecord::Schema.define(:version => 20101006170230) do
 
-  create_table "phones", :force => true do |t|
-    t.string   "ddd"
-    t.string   "number"
-    t.string   "extension"
+  create_table "contacts", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "info"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "groups_contacts", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "contact_id"
   end
 
   create_table "users", :force => true do |t|

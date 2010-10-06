@@ -4,7 +4,7 @@ user1:
   access_token: "61232816-844ijckTVlyKa9jEz38qWI7HxsNlhQmNpuXlPaps"
   access_secret: "z4YBWPXCSb0aLlckBfKpi4P9aTh75HxtanyE0OPtgjY"
   remember_token: "94c102124e5707b7b594"
-  remember_token_expires_at: "2010-05-15 14:50:54"
+  remember_token_expires_at: "2012-05-15 14:50:54"
   name: "Bruno Diniz"
   location: "Brazil"
   description: ""

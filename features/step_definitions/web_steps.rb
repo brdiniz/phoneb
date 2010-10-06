@@ -4,6 +4,10 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 # Commonly used webrat steps
 # http://github.com/brynary/webrat
 
+Given /^I have a new (.+) with (.+) "([^\"]*)"$/ do |clazz, clazz_type, clazz_name|
+  Factory(eval(":#{clazz.underscore.downcase.singularize}"), eval(":#{clazz_type}") => clazz_name, :user => User.first)
+end
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end

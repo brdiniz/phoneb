@@ -1,3 +1,4 @@
 class User < TwitterAuth::GenericUser
-  has_many :phones
+  has_many :contacts
+  has_many :groups
 end
