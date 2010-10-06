@@ -3,6 +3,8 @@
   <ul class="navigation">
     <li><%= link_to "Criar Contato", new_user_contact_path %></li>
     <li><%= link_to "Criar Grupo", new_user_group_path %></li>
-    <li><%= link_to "Associar a um novo grupo", "#" %></li>
+		<% if @contact && !@contact.new_record? %>
+    	<li><%= link_to "Associar a um novo grupo", "#" %></li>
+		<% end %>
   </ul>
 </div>

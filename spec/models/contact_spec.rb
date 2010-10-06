@@ -10,12 +10,10 @@ describe Contact do
     p.errors.on(:info).should_not be_blank
   end
   
-  it "should associate phones in user" do
-    u = Factory.build(:user)
-    u.should be_valid
-    u.contacts << Factory(:contact)
-    u.contacts.size.should == 1
-    u.contacts << Factory(:contact)
-    u.contacts.size.should == 2
+  it "should associate phones in groups" do
+    c = Factory(:contact)
+    g = Factory(:group)
+    c.group_name = g.name
+    c.associate_group.should be_true
   end
 end

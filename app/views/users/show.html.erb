@@ -11,20 +11,16 @@
 			</ul>
 			<div class="diary_item">
 				<table class="table">
-		      <tr>             
+		      <tr>      
+			      <th>Nome</th>
 		        <th>Descrição</th>
-						<th>Info</th>
 		        <th class="last">&nbsp;</th>
 		      </tr>
 		      <% @user.contacts.each do |contact| -%>
 		      <tr class="<%= cycle("odd", "even") %>">
+						<td><%= contact.user.name %></td>
 						<td><%= contact.description %></td>
-						<td><%= link_to contact.info, [@user, contact] %></td>
-		        <td class="last">
-		          <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, contact] %> |
-		          <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_contact_path(@user, contact) %> |
-		          <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", [@user, contact], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-		        </td>
+						<td class="last"><%= link_to contact.info, [@user, contact] %></td>
 		      </tr>          
 		      <% end -%>
 		    </table>
