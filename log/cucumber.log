@@ -4096,3 +4096,223 @@ Rendering template within layouts/application
 Rendering groups/show
 Rendered groups/_sidebar (0.9ms)
 Completed in 10ms (View: 7, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/1]
+** TwitterAuth initialized properly.
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mContact Load (0.2ms)[0m   [0;1mSELECT * FROM "contacts" WHERE ("contacts".user_id = 206669143) [0m
+  [4;35;1mGroup Load (0.7ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups".user_id = 206669143) [0m
+Rendered users/_sidebar (16.5ms)
+Completed in 70ms (View: 66, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /users/206669143/contacts/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"user_id"=>"206669143"}
+  [4;36;1mUser Load (2.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering contacts/new
+Rendered contacts/_form (4.4ms)
+Rendered contacts/_sidebar (1.2ms)
+Completed in 22ms (View: 13, DB: 3) | 200 OK [http://www.example.com/users/206669143/contacts/new]
+REQUESTING PAGE: POST /users/206669143/contacts with {"contact"=>{"info"=>"(55) 11 12345678", "description"=>"mobile"}} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/contacts/new"}
+
+
+Processing ContactsController#create (for 127.0.0.1 at 2010-10-06 14:28:54) [POST]
+  Parameters: {"contact"=>{"info"=>"(55) 11 12345678", "description"=>"mobile"}, "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mContact Create (0.2ms)[0m   [0;1mINSERT INTO "contacts" ("created_at", "updated_at", "info", "user_id", "description") VALUES('2010-10-06 17:28:54', '2010-10-06 17:28:54', '(55) 11 12345678', 206669143, 'mobile')[0m
+Redirected to http://www.example.com/users/206669143/contacts/1
+Completed in 13ms (DB: 0) | 302 Found [http://www.example.com/users/206669143/contacts]
+REQUESTING PAGE: GET http://www.example.com/users/206669143/contacts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/contacts"}
+
+
+Processing ContactsController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mContact Load (0.2ms)[0m   [0mSELECT * FROM "contacts" WHERE ("contacts"."id" = 1 AND ("contacts".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering contacts/show
+Rendered contacts/_sidebar (0.8ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://www.example.com/users/206669143/contacts/1]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mContact Create (0.2ms)[0m   [0mINSERT INTO "contacts" ("created_at", "updated_at", "info", "user_id", "description") VALUES('2010-10-06 17:28:54', '2010-10-06 17:28:54', '55 11 909080', 206669143, '55 (11) 7664-5125')[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mContact Load (0.6ms)[0m   [0;1mSELECT * FROM "contacts" WHERE ("contacts".user_id = 206669143) [0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups".user_id = 206669143) [0m
+Rendered users/_sidebar (0.4ms)
+Completed in 13ms (View: 7, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /users/206669143/contacts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ContactsController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mContact Load (0.2ms)[0m   [0;1mSELECT * FROM "contacts" WHERE ("contacts"."id" = 1 AND ("contacts".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering contacts/show
+Rendered contacts/_sidebar (0.8ms)
+Completed in 111ms (View: 108, DB: 1) | 200 OK [http://www.example.com/users/206669143/contacts/1]
+REQUESTING PAGE: GET /users/206669143/contacts/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/contacts/1"}
+
+
+Processing ContactsController#edit (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mContact Load (0.2ms)[0m   [0mSELECT * FROM "contacts" WHERE ("contacts"."id" = 1 AND ("contacts".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering contacts/edit
+Rendered contacts/_form (2.3ms)
+Rendered contacts/_sidebar (0.8ms)
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://www.example.com/users/206669143/contacts/1/edit]
+REQUESTING PAGE: POST /users/206669143/contacts/1 with {"contact"=>{"info"=>"(55) 11 909080", "description"=>"55 (11) 7664-5125"}, "_method"=>"put"} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/contacts/1/edit"}
+
+
+Processing ContactsController#update (for 127.0.0.1 at 2010-10-06 14:28:54) [PUT]
+  Parameters: {"contact"=>{"info"=>"(55) 11 909080", "description"=>"55 (11) 7664-5125"}, "id"=>"1", "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mContact Load (0.2ms)[0m   [0;1mSELECT * FROM "contacts" WHERE ("contacts"."id" = 1 AND ("contacts".user_id = 206669143)) [0m
+  [4;35;1mContact Update (0.1ms)[0m   [0mUPDATE "contacts" SET "info" = '(55) 11 909080', "updated_at" = '2010-10-06 17:28:54' WHERE "id" = 1[0m
+Redirected to http://www.example.com/users/206669143/contacts/1
+Completed in 6ms (DB: 0) | 302 Found [http://www.example.com/users/206669143/contacts/1]
+REQUESTING PAGE: GET http://www.example.com/users/206669143/contacts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/contacts/1"}
+
+
+Processing ContactsController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mContact Load (0.3ms)[0m   [0;1mSELECT * FROM "contacts" WHERE ("contacts"."id" = 1 AND ("contacts".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering contacts/show
+Rendered contacts/_sidebar (0.9ms)
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://www.example.com/users/206669143/contacts/1]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mContact Load (0.1ms)[0m   [0mSELECT * FROM "contacts" WHERE ("contacts".user_id = 206669143) [0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups".user_id = 206669143) [0m
+Rendered users/_sidebar (0.4ms)
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /users/206669143/groups/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing GroupsController#new (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"user_id"=>"206669143"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering groups/new
+Rendered groups/_form (81.9ms)
+Rendered groups/_sidebar (1.2ms)
+Completed in 94ms (View: 87, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/new]
+REQUESTING PAGE: POST /users/206669143/groups with {"group"=>{"name"=>"schedul"}} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/groups/new"}
+
+
+Processing GroupsController#create (for 127.0.0.1 at 2010-10-06 14:28:54) [POST]
+  Parameters: {"group"=>{"name"=>"schedul"}, "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'schedul') LIMIT 1[0m
+  [4;36;1mGroup Create (0.2ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "user_id") VALUES('schedul', '2010-10-06 17:28:54', '2010-10-06 17:28:54', 206669143)[0m
+Redirected to http://www.example.com/users/206669143/groups/1
+Completed in 7ms (DB: 0) | 302 Found [http://www.example.com/users/206669143/groups]
+REQUESTING PAGE: GET http://www.example.com/users/206669143/groups/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/groups"}
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1 AND ("groups".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering groups/show
+Rendered groups/_sidebar (0.7ms)
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/1]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'group_1') LIMIT 1[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "user_id") VALUES('group_1', '2010-10-06 17:28:54', '2010-10-06 17:28:54', 206669143)[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-10-06 14:28:54) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mContact Load (0.2ms)[0m   [0mSELECT * FROM "contacts" WHERE ("contacts".user_id = 206669143) [0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups".user_id = 206669143) [0m
+Rendered users/_sidebar (0.6ms)
+Completed in 12ms (View: 10, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /users/206669143/groups/1 with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-10-06 14:28:55) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1 AND ("groups".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering groups/show
+Rendered groups/_sidebar (0.7ms)
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/1]
+REQUESTING PAGE: GET /users/206669143/groups/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/groups/1"}
+
+
+Processing GroupsController#edit (for 127.0.0.1 at 2010-10-06 14:28:55) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mGroup Load (0.4ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1 AND ("groups".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering groups/edit
+Rendered groups/_form (1.8ms)
+Rendered groups/_sidebar (0.8ms)
+Completed in 103ms (View: 9, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/1/edit]
+REQUESTING PAGE: POST /users/206669143/groups/1 with {"group"=>{"name"=>"nome do novo grupo"}, "_method"=>"put"} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/groups/1/edit"}
+
+
+Processing GroupsController#update (for 127.0.0.1 at 2010-10-06 14:28:55) [PUT]
+  Parameters: {"group"=>{"name"=>"nome do novo grupo"}, "id"=>"1", "user_id"=>"206669143"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1 AND ("groups".user_id = 206669143)) [0m
+  [4;36;1mGroup Load (3.3ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'nome do novo grupo' AND "groups".id <> 1) LIMIT 1[0m
+  [4;35;1mGroup Update (0.2ms)[0m   [0mUPDATE "groups" SET "updated_at" = '2010-10-06 17:28:55', "name" = 'nome do novo grupo' WHERE "id" = 1[0m
+Redirected to http://www.example.com/users/206669143/groups/1
+Completed in 12ms (DB: 0) | 302 Found [http://www.example.com/users/206669143/groups/1]
+REQUESTING PAGE: GET http://www.example.com/users/206669143/groups/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/206669143/groups/1"}
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-10-06 14:28:55) [GET]
+  Parameters: {"id"=>"1", "user_id"=>"206669143"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1 AND ("groups".user_id = 206669143)) [0m
+Rendering template within layouts/application
+Rendering groups/show
+Rendered groups/_sidebar (1.5ms)
+Completed in 24ms (View: 21, DB: 1) | 200 OK [http://www.example.com/users/206669143/groups/1]
