@@ -2,47 +2,34 @@
 <div class="content">          
   <h2 class="title"></h2>
   <div class="inner">
-
-		<h1>Contatos</h1>
-    <table class="table">
-      <tr>             
-        <th>Descrição</th>
-				<th>Info</th>
-        <th class="last">&nbsp;</th>
-      </tr>
-      <% @user.contacts.each do |contact| -%>
-      <tr class="<%= cycle("odd", "even") %>">
-				<td><%= contact.description %></td>
-				<td><%= link_to contact.info, [@user, contact] %></td>
-        <td class="last">
-          <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, contact] %> |
-          <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_contact_path(@user, contact) %> |
-          <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", [@user, contact], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-        </td>
-      </tr>          
-      <% end -%>
-    </table>
-
-    <p />
-		<hr>
-		<h1>Grupos</h1>
-
-    <table class="table">
-      <tr>             
-        <th class="first">Descrição</th>
-        <th class="last">&nbsp;</th>
-      </tr>
-      <% @user.groups.each do |group| -%>
-      <tr class="<%= cycle("odd", "even") %>">
-				<td><%= link_to group.name, [@user, group] %></td>
-        <td class="last">
-          <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, group] %> |
-          <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_group_path(@user, group) %> |
-          <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", [@user, group], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-        </td>
-      </tr>          
-      <% end -%>
-    </table>
+	
+		<div id="diary">
+			<ul id="content">
+				<% ('A'..'Z').each do |alphabet| %>
+					<li><a href="#"><%= alphabet.to_s %></li>
+				<% end %>
+			</ul>
+			<div class="diary_item">
+				<table class="table">
+		      <tr>             
+		        <th>Descrição</th>
+						<th>Info</th>
+		        <th class="last">&nbsp;</th>
+		      </tr>
+		      <% @user.contacts.each do |contact| -%>
+		      <tr class="<%= cycle("odd", "even") %>">
+						<td><%= contact.description %></td>
+						<td><%= link_to contact.info, [@user, contact] %></td>
+		        <td class="last">
+		          <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, contact] %> |
+		          <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_contact_path(@user, contact) %> |
+		          <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", [@user, contact], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+		        </td>
+		      </tr>          
+		      <% end -%>
+		    </table>
+			</div>
+		</div>
 
     <div class="actions-bar wat-cf">
       <div class="actions">

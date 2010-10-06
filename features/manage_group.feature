@@ -5,6 +5,7 @@ Feature: Manage group
 
 	Scenario: Create a new group
     Given I am on the homepage
+		And I follow "Meus Grupos"
 		When I follow "Criar Grupo"
 		And I fill in "group_name" with "schedul"
 		And I press "Salvar"
@@ -14,6 +15,7 @@ Feature: Manage group
 		Scenario: Edit a group
 			Given I have a new group with name "group_1"
 			And I am on the homepage
+			And I follow "Meus Grupos"
 			And I follow "group_1"
 			And I should see "group_1"
 			When I follow "Alterar"
