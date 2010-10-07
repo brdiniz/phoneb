@@ -23,6 +23,23 @@ Feature: Manage contact
 		And I press "Salvar"
 		Then I should see "Alteração de Contato realizada com sucesso"
 		And I should see "(55) 11 909080"
+		
+	Scenario: Associate phone a group
+	  Given I have a new contact with info "55 11 909080"
+		And I have a new group with name "ruck.com.br"
+		And I am on the homepage
+		And I follow "55 11 909080"
+		And I should see "55 11 909080"
+		When I follow "Associar a Grupo"
+		And I fill in "contact_group_name" with "ruck.com.br"
+		And I press "Salvar"
+		Then I should see "Contato associado a Grupo com sucesso"
+		And I should see "55 11 909080"
+		And I should see "Grupos Associados"
+		And I should see "ruck.com.br"
+	
+	
+	
 	
 	
 	

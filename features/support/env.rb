@@ -58,7 +58,6 @@ Before do
 end
 
 class ApplicationController
-
   def current_user
     User.first
   end

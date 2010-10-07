@@ -4,7 +4,7 @@
     <li><%= link_to "Criar Contato", new_user_contact_path %></li>
     <li><%= link_to "Criar Grupo", new_user_group_path %></li>
 		<% if @contact && !@contact.new_record? %>
-    	<li><%= link_to "Associar a um novo grupo", "#" %></li>
+    	<li><%= link_to "Associar a Grupo", associate_group_user_contact_path(@user, @contact) %></li>
 		<% end %>
   </ul>
 </div>

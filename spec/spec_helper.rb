@@ -22,6 +22,12 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
   config.global_fixtures = :all
+  
+  share_examples_for "authenticated controller" do
+    before(:each) do
+      current_user = User.first
+    end
+  end
 
   # == Fixtures
   #
