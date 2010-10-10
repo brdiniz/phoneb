@@ -6,6 +6,7 @@ Feature: Manage contact
 
 	Scenario: Create a new phone
     Given I am on the homepage
+		And I follow "Gerenciar meus contatos"
 		When I follow "Criar Contato"
 		And I fill in "contact_description" with "mobile"
 		And I fill in "contact_info" with "(55) 11 12345678"
@@ -32,6 +33,7 @@ Feature: Manage contact
 		And I have a new group with name "ruck.com.br"
 		And I am on the homepage
 		And I follow "Meus Contatos"
+		And I should see "Grupos Associados"
 		And I follow "55 11 102030"
 		And I should see "55 11 102030"
 		When I follow "Associar a Grupo"

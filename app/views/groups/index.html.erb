@@ -1,7 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-	    <li class="first active"><%= link_to "Listagem de Grupos", "#"  %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
+  		<li class="active"><%= link_to "Grupos", "#" %></li>
     </ul>
   </div>          
   <div class="content">          
@@ -9,11 +10,11 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">
+          <th>
 						<%= t("activerecord.attributes.group.name", :default => t("activerecord.labels.name", :default => "Name")) %>
 					</th>
 					<th>
-						<%= "Total de usuários" %>
+						Total de contatos
 					</th>
           <th class="last">&nbsp;</th>
         </tr>
@@ -23,7 +24,7 @@
 						<%= link_to group.name, user_group_path(@user, group) %>
 					</td>
 					<td>
-            
+            <%= group.contacts.size %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, group] %> |

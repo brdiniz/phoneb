@@ -6,6 +6,10 @@ Feature: Manage user
 	Scenario: Show my diary
 	  Given I have a new diary
 		And I am on the homepage
+		And I should not see "Meus Contatos"
+		And I should not see "Meus Grupos"
+		And I should see "Gerenciar meus contatos"
+		And I should see "Gerenciar meus grupos"
 		And I should see "Opções de Bruno Diniz"
 		And I should see "Alberto"
 		And I should see "Adailton"

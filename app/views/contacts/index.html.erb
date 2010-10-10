@@ -1,8 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-	    <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", user_contacts_path(@user)  %></li>
-  		<li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_contact_path(@user) %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
+  		<li class="active"><%= link_to "Contatos", "#" %></li>
     </ul>
   </div>          
   <div class="content">          
@@ -12,6 +12,7 @@
         <tr> 
 					<th>Informação</th>
           <th>Descrição</th>
+					<th>Grupos Associados</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @contacts.each do |contact| -%>
@@ -22,6 +23,9 @@
 					<td>
             <%= contact.description %>
           </td>
+					<td>
+						<%= contact.groups.size %>
+					</td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_contact_path(@user, contact) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_contact_path(@user, contact) %> |

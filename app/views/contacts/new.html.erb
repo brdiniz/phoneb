@@ -1,7 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.login, user_path(@user)  %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
+  		<li><%= link_to "Contatos", user_contacts_path %></li>
       <li class="active"><%= link_to "Criar telefone", "#" %></li>
     </ul>
   </div>          
