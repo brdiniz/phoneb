@@ -1,8 +1,8 @@
-#diary { clear: both; position: relative; width: 600px; }
+#diary { clear: both; position: relative; width: 700px; }
 #diary #content { float: left; position: relative; width: 38px; z-index: 1000; }
-#diary #content li { background: #B2B2B2; line-height: 14px; margin-bottom: 7px; padding: 5px 0px; text-align: center; list-style: none; }
+#diary #content li { background: #B2B2B2; border: 2px solid; border-color: #B2B2B2; line-height: 14px; margin-bottom: 7px; padding: 5px 0px; text-align: center; list-style: none; }
 #diary #content li a { color: white; font-size: 11px; cursor: pointer; text-decoration: none; }
-#diary #content .sel { background: white; border: 2px solid; border-color: #B2B2B2; border-right: 2px solid white; }
+#diary #content .sel { background: white; border: 2px solid; border-color: #B2B2B2; border-right: 2px solid #B2B2B2; }
 #diary #content .sel a { color: #555; }
 
 .diary_item { height: 844px; border: 2px solid #B2B2B2; color: #5E5C5C; float: left; font-size: 1.2em; margin-left: -2px; padding: 10px; width: 533px; z-index: 1;}

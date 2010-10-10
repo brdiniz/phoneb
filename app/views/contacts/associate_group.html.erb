@@ -6,7 +6,7 @@ $(function() {
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to @user.login, user_path(@user)  %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
   	  <li><%= link_to @contact.info, [@user, @contact]  %></li>
       <li class="active"><%= link_to "Associar Grupo", "#" %></li>
     </ul>

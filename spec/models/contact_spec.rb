@@ -16,4 +16,35 @@ describe Contact do
     c.group_name = g.name
     c.associate_group.should be_true
   end
+  
+  it "should view all contacts of my groups" do
+    g = Factory(:group)
+    g1 = Factory(:group)
+    
+    u = Factory(:user, :login => "priscila")
+    c = Factory(:contact, :user => u)
+    c.group_name = g.name
+    c.associate_group.should be_true
+    
+    c1 = Factory(:contact, :user => u)
+    c1.group_name = g1.name
+    c1.associate_group.should be_true
+    
+    u1 = Factory(:user, :login => "paola")
+    c2 = Factory(:contact, :user => u1)
+    c2.group_name = g.name
+    c2.associate_group.should be_true
+
+    user = User.find_by_login("brdiniz")
+    c3 = Factory(:contact, :user => user)
+    c3.group_name = g.name
+    c3.associate_group.should be_true
+    
+    my = Contact.my(user)
+    
+    my.should include c
+    my.should_not include c1
+    my.should include c2
+    my.should include c3
+  end
 end

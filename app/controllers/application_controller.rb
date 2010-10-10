@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   
-  def find_user
-    @user = current_user
+  def find_current_user
+    @current_user = current_user
   end
 end

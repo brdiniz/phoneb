@@ -10,17 +10,17 @@
     <div class="inner">
       <table class="table">
         <tr> 
-          <th class="first"><%= t("activerecord.attributes.contact.ddd", :default => t("activerecord.labels.ddd", :default => "Ddd")) %></th>
-					<th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+					<th>Informação</th>
+          <th>Descrição</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @contacts.each do |contact| -%>
         <tr class="<%= cycle("odd", "even") %>">
 					<td>
-						<%= link_to contact.description, user_contact_path(@user, contact) %>
+						<%= link_to contact.info, user_contact_path(@user, contact) %>
 					</td>
 					<td>
-            <%= contact.info %>
+            <%= contact.description %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_contact_path(@user, contact) %> |

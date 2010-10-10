@@ -5,8 +5,13 @@
 	
 		<div id="diary">
 			<ul id="content">
-				<% ('A'..'Z').each do |alphabet| %>
-					<li><a href="#"><%= alphabet.to_s %></li>
+				<% ('A'..'M').each do |alphabet| %>
+					<li <%= " class='sel'" if alphabet.to_s == @alphabet %>><%= link_to alphabet.to_s, find_path(alphabet.to_s) %></li>
+				<% end %>
+			</ul>
+			<ul id="content">
+				<% ('N'..'Z').each do |alphabet| %>
+					<li <%= " class='sel'" if alphabet.to_s == @alphabet %>><%= link_to alphabet.to_s, find_path(alphabet.to_s) %></li>
 				<% end %>
 			</ul>
 			<div class="diary_item">
@@ -16,11 +21,11 @@
 		        <th>Descrição</th>
 		        <th class="last">&nbsp;</th>
 		      </tr>
-		      <% @user.contacts.each do |contact| -%>
+		      <% @contacts.each do |contact| -%>
 		      <tr class="<%= cycle("odd", "even") %>">
 						<td><%= contact.user.name %></td>
 						<td><%= contact.description %></td>
-						<td class="last"><%= link_to contact.info, [@user, contact] %></td>
+						<td class="last"><%= link_to contact.info, [contact.user, contact] %></td>
 		      </tr>          
 		      <% end -%>
 		    </table>
