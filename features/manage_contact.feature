@@ -27,7 +27,7 @@ Feature: Manage contact
 		Then I should see "Alteração de Contato realizada com sucesso"
 		And I should see "(55) 11 909080"
 		
-	Scenario: Associate phone a group
+	Scenario: Associate and Dessassociate contact a group
 	  Given I have a new contact with info "55 11 102030"
 		And I have a new group with name "ruck.com.br"
 		And I am on the homepage
@@ -41,9 +41,3 @@ Feature: Manage contact
 		And I should see "55 11 102030"
 		And I should see "Grupos Associados"
 		And I should see "ruck.com.br"
-	
-	
-	
-	
-	
-	

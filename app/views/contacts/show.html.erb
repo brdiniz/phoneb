@@ -33,7 +33,7 @@
           <tr class='<%= cycle("odd", "even") %>'>
             <td><%= group.name %></td>
             <td class="last">
-              <%= link_to "Desassociar", "#" %>
+              <%= link_to "Desassociar", associate_group_user_contact_path(group.user, group), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
             </td>
           </tr>
         <% end %>

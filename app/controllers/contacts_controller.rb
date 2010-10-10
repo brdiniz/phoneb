@@ -6,6 +6,8 @@ class ContactsController < InheritedResources::Base
   def associate_group
     @user = User.find(params[:user_id])
     @contact = Contact.find(params[:id])
+    @group = Group.find(params[:group_id]) if params[:group_id]
+    
     if request.post?
       @contact.update_attributes(params[:contact])
       if @contact.associate_group
