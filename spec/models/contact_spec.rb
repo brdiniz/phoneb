@@ -45,6 +45,6 @@ describe Contact do
     my.should include c
     my.should_not include c1
     my.should include c2
-    my.should include c3
+    my.should_not include c3
   end
 end

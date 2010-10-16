@@ -3,11 +3,13 @@ Feature: Manage contact
   As a all users
   I want to be able to create, update and remove contacts
 
-
 	Scenario: Create a new phone
     Given I am on the homepage
 		And I follow "Gerenciar meus contatos"
 		When I follow "Criar Contato"
+		And I should see "Criar Contato" within ".secondary-navigation ul li.active"
+		And I should see "Ações para meus contatos" within "#sidebar"
+		And I should see "Voltar" within "#sidebar"
 		And I fill in "contact_description" with "mobile"
 		And I fill in "contact_info" with "(55) 11 12345678"
 		And I press "Salvar"

@@ -1,8 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "Listagem de Grupos", user_groups_path(@user)  %></li>
-      <li><%= link_to "Grupo #{@group.name}", [@user, @group] %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
+  		<li><%= link_to "Grupos", user_groups_path %></li>
+      <li><%= link_to @group.name, [@user, @group] %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", "#" %></li>
     </ul>
   </div>          

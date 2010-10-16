@@ -7,7 +7,8 @@ class Contact < ActiveRecord::Base
       {:joins => :groups,
       :conditions => ["groups_contacts.group_id IN (SELECT g.id From groups g INNER JOIN "+
         "groups_contacts gc1 ON g.id = gc1.group_id INNER JOIN "+
-        "contacts c ON gc1.contact_id = c.id WHERE c.user_id = ?)", "#{user.id}"]
+        "contacts c ON gc1.contact_id = c.id WHERE c.user_id = ?) "+
+        "And contacts.user_id NOT IN (?)", "#{user.id}", "#{user.id}"]
     }}
     
   named_scope :startwith, lambda { |alphabet| 

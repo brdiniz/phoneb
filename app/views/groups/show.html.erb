@@ -1,8 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "Listagem de Grupos", user_groups_path  %></li>
-      <li class="active"><%= link_to "Grupo #{@group.name}", "#" %></li>
+      <li class="first"><%= link_to @user.name, root_path  %></li>
+  		<li><%= link_to "Grupos", user_groups_path %></li>
+      <li class="active"><%= link_to @group.name, "#" %></li>
     </ul>
   </div>          
   <div class="content">
@@ -19,11 +20,26 @@
 		    <table class="table">
 		      <tr>             
 		        <th>Nome</th>
-						<th><%= t("activerecord.attributes.phone.ddd", :default => t("activerecord.labels.ddd", :default => "DDD")) %></th>
-						<th><%= t("activerecord.attributes.phone.number", :default => t("activerecord.labels.number", :default => "Number")) %></th>
-						<th><%= t("activerecord.attributes.phone.extension", :default => t("activerecord.labels.extension", :default => "Extension")) %></th>
+						<th>Descrição</th>
+						<th>Informação</th>
 		        <th class="last">&nbsp;</th>
 		      </tr>
+		        <% @group.contacts.each do |contact| -%>
+		        <tr class="<%= cycle("odd", "even") %>">
+							<td>
+								<%= contact.user.name %>
+							</td>
+							<td>
+		            <%= contact.description %>
+		          </td>
+							<td>
+								<%= contact.info %>
+							</td>
+		          <td class="last">
+								&nbsp;
+		          </td>
+		        </tr>
+		        <% end -%>
 		    </table>    
     </div>
   </div>
