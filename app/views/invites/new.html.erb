@@ -1,0 +1,21 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
+  		<li><%= link_to "Grupo", user_groups_path %></li>
+			<li><%= link_to @group.name, user_group_path(@user, @group) %></li>
+  		<li><%= link_to "Convites", user_group_invites_path %></li>
+      <li class="active"><%= link_to "Novo", "#" %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.new", :default => "New")%>  Invite</h2>
+    <div class="inner">
+      <% form_for :invite, :url => user_group_invites_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

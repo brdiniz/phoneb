@@ -24,6 +24,8 @@ pt_br:
       groups: Grupos
       contact: Contato
       contacts: Contatos
+      invite: Convite
+      invites: Convites
     errors: 
       template:
         body: "Os seguintes erros impediram esta operação:"

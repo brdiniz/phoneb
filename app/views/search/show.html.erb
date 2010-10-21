@@ -22,7 +22,7 @@
 			         <span style="color: #8C8C8C; font-size: 0.9em; font-style: italic;">Descrição: <%= key.name %><br> Quantidade de contatos (<%= key.contacts.size.to_s %>)</span>
 						</td>
 						<td class="last">
-							<%= link_to "Associar", "#" if key.user != @current_user %>
+							<%= link_to "Associar", new_user_group_invite_path(key.user, key) %>
 						</td>
 					</tr>
 		     <% end %>
