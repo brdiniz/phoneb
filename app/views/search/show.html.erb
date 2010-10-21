@@ -1,0 +1,32 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
+      <li class="active"><a href="#">Resultado da Busca</a></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+	  <h2 class="title"></h2>
+    <div class="inner">
+			<table class="table">
+        <tr>             
+          <th>Descrição</th>
+          <th class="last">&nbsp;</th>
+				</tr>
+		    <% @results.each do |key| %>
+					<tr class="<%= cycle("odd", "even") %>">
+						<td>
+			        <%= link_to "Grupo: #{key.name}", [key.user, key] %>
+			         <br/>
+			         <span style="color: #8C8C8C; font-size: 0.9em; font-style: italic;">Descrição: <%= key.name %><br> Quantidade de contatos (<%= key.contacts.size.to_s %>)</span>
+						</td>
+						<td class="last">
+							<%= link_to "Associar", "#" if key.user != @current_user %>
+						</td>
+					</tr>
+		     <% end %>
+			</table>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,20 @@
       <h1><a href="/">DiaryBook</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
+					<li style="padding: 3px 10px;">
+						<script>
+						$(function (){
+						        $("#search_text").autocomplete('/search/index', {
+						            minChars: 0,
+												max: 30
+						        });
+						    });							
+						</script>
+						<% form_tag "/search/show", :class => "form", :html => { :class => :form } do %>
+						<%= text_field_tag :search_text, "", :size => 20   %>
+						<%= submit_tag "Buscar" %>
+						<% end %>
+					</li>
           <li><a href="/"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
           <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
           <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
@@ -18,7 +32,7 @@
       </div>      
       <div id="main-navigation">
         <ul class="wat-cf">
-          <li><%= link_to "Grupos", user_groups_path(@user) %></li>
+          <li><%= link_to "Grupos", user_groups_path(@current_user) %></li>
 				</ul>
       </div>
     </div>    
