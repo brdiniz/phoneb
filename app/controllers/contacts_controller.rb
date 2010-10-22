@@ -1,4 +1,5 @@
 class ContactsController < InheritedResources::Base
+  load_and_authorize_resource :nested => [:user]
   belongs_to :user
   
   before_filter :login_required, :find_current_user

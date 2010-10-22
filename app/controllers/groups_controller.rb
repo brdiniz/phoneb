@@ -1,6 +1,6 @@
 class GroupsController < InheritedResources::Base
-  belongs_to :user
+  load_and_authorize_resource :nested => [:user]
   
-  before_filter :login_required
-  before_filter :find_current_user
+  before_filter :login_required, :find_current_user
+  belongs_to :user
 end

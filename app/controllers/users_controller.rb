@@ -1,7 +1,5 @@
 class UsersController < InheritedResources::Base
-  before_filter :login_required
-  before_filter :find_current_user
-  before_filter :find_user
+  before_filter :login_required, :find_current_user, :find_user
   
   def show
     @alphabet = params[:alphabet]
@@ -10,6 +8,6 @@ class UsersController < InheritedResources::Base
   end
   
   def find_user
-    @user = @current_user if @user.nil?
+    @user = current_user if @user.nil?
   end
 end
