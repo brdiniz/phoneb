@@ -7,6 +7,6 @@ class UsersController < InheritedResources::Base
     @user = current_user
     @alphabet = params[:alphabet]
     @alphabet = "A" if @alphabet.blank?
-    @contacts = Contact.my(@user).startwith(@alphabet)
+    @contacts = Contact.my(@user).startwith(@alphabet).uniq
   end
 end
