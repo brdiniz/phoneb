@@ -1,13 +1,12 @@
 class UsersController < InheritedResources::Base
-  before_filter :login_required, :find_current_user, :find_user
+  load_and_authorize_resource
+  
+  before_filter :login_required, :find_current_user
   
   def show
+    @user = current_user
     @alphabet = params[:alphabet]
     @alphabet = "A" if @alphabet.blank?
     @contacts = Contact.my(@user).startwith(@alphabet)
-  end
-  
-  def find_user
-    @user = current_user if @user.nil?
   end
 end

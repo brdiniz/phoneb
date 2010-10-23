@@ -1,8 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.name, root_path  %></li>
-  		<li><%= link_to "Contatos", user_contacts_path %></li>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
+  		<li><%= link_to "Contatos", contacts_path %></li>
       <li class="active"><%= link_to @contact.info, "#" %></li>
     </ul>
   </div>          
@@ -17,8 +17,8 @@
           <%= @contact.info %>
         </p>
       <div class="wat-cf">
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_contact_path(@user, @contact), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", [@user, @contact], :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_contact_path(@user, @contact), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", @contact, :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
 			<div class="clear"></div>
       <p />
@@ -34,7 +34,7 @@
           <tr class='<%= cycle("odd", "even") %>'>
             <td><%= group.name %></td>
             <td class="last">
-              <%= link_to "Desassociar", associate_group_user_contact_path(group.user, group), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+              <%= link_to "Desassociar", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
             </td>
           </tr>
         <% end %>

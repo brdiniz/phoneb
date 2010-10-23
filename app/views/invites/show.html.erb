@@ -2,9 +2,16 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to @current_user.name, root_path  %></li>
-  		<li><%= link_to "Grupo", user_groups_path %></li>
-			<li><%= link_to @group.name, user_group_path(@user, @group) %></li>
-  		<li><%= link_to "Convites", user_group_invites_path %></li>
+			<% if @group %>
+  			<li><%= link_to "Grupo", user_groups_path %></li>
+				<li><%= link_to @group.name, user_group_path(@user, @group) %></li>
+				<li><%= link_to "Convites", user_group_invites_path %></li>
+			<% end %>
+			<% if @contact %>
+				<li><%= link_to "Contatos", contacts_path %></li>
+				<li><%= link_to @contact.info, @contact %></li>			
+				<li><%= link_to "Convites", contact_invites_path(@contact) %></li>	
+			<% end %>
       <li class="active"><%= link_to "Status", "#" %></li>
     </ul>
   </div>          
@@ -13,7 +20,7 @@
       
         <p>
           <b><%= t("activerecord.attributes.invite.group_id", :default => t("activerecord.labels.group_id", :default => "Group")) %>:</b>
-          <%= @invite.group_id %>
+          <%= @invite.group.name %>
         </p>
 
         <p>
@@ -21,8 +28,12 @@
           <%= @invite.contact.info %>
         </p>
       <div class="wat-cf">
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_group_invite_path(@user, @group, @invite), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", user_group_invite_path(@user, @group, @invite), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+				<% edit_link = edit_user_group_invite_path(@user, @group, @invite) if @group %>
+				<% edit_link = edit_contact_invite_path(@contact, @invite) if @contact %>
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_link, :class => "button" %> 
+				<% delete_link = [@user, @group, @invite] if @group %>
+				<% delete_link = [@contact, @invite] if @contact %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", delete_link, :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
     </div>
   </div>

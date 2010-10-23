@@ -3,7 +3,10 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :groups do |group|
       group.resources :invites
     end
-    user.resources :contacts, :member => {:associate_group => [:get, :post]}
+  end
+  
+  map.resources :contacts do |contact|
+    contact.resources :invites
   end
   
   map.root :user

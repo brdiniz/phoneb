@@ -14,11 +14,4 @@ class Contact < ActiveRecord::Base
   named_scope :startwith, lambda { |alphabet| 
     {:joins => :user, 
     :conditions => ["users.name LIKE ?", "#{alphabet}%"] }}
-  
-  attr_accessor :group_name
-  
-  def associate_group
-    self.groups << Group.find_by_name(group_name)
-    return true
-  end
 end

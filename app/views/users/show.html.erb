@@ -25,7 +25,7 @@
 		      <tr class="<%= cycle("odd", "even") %>">
 						<td><%= contact.user.name %></td>
 						<td><%= contact.description %></td>
-						<td class="last"><%= link_to contact.info, [contact.user, contact] %></td>
+						<td class="last"><%= link_to contact.info, contact %></td>
 		      </tr>          
 		      <% end -%>
 		    </table>

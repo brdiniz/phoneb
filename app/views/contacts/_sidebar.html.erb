@@ -1,10 +1,10 @@
 <div class="block">
   <h3>Ações para meus contatos</h3>
   <ul class="navigation">
-  	<li><%= link_to "Voltar", user_contacts_path %></li>
-    <li><%= link_to "Criar Contato", new_user_contact_path %></li>
+  	<li><%= link_to "Voltar", contacts_path %></li>
+    <li><%= link_to "Criar Contato", new_contact_path %></li>
 		<% if @contact && !@contact.new_record? %>
-    	<li><%= link_to "Associar a Grupo", associate_group_user_contact_path(@user, @contact) %></li>
+    	<li><%= link_to "Associar a Grupo", new_contact_invite_path(@user, @contact) %></li>
 		<% end %>
   </ul>
 </div>

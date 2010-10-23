@@ -1,7 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.name, root_path  %></li>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
   		<li class="active"><%= link_to "Contatos", "#" %></li>
     </ul>
   </div>          
@@ -18,7 +18,7 @@
         <% @contacts.each do |contact| -%>
         <tr class="<%= cycle("odd", "even") %>">
 					<td>
-						<%= link_to contact.info, user_contact_path(@user, contact) %>
+						<%= link_to contact.info, contact_path(contact) %>
 					</td>
 					<td>
             <%= contact.description %>
@@ -27,9 +27,9 @@
 						<%= contact.groups.size %>
 					</td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_contact_path(@user, contact) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_contact_path(@user, contact) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", user_contact_path(@user, contact), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", contact %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_contact_path(contact) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", contact, :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
         </tr>          
         <% end -%>
