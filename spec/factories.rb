@@ -4,6 +4,11 @@ Factory.define :contact do |p|
   p.description "55 (11) 7664-5125"
 end
 
+Factory.define :invite do |i|
+  i.association :group, :factory => :group
+  i.association :contact, :factory => :contact
+end
+
 Factory.define :group do |g|
   g.sequence(:name) { |n| "group_#{n}" }
   g.association :user, :factory => :user

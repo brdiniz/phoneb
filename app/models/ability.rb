@@ -21,7 +21,7 @@ class Ability
     end
     
     can :modify, Invite do |i|
-      i || i.contact.user == user
+      i || (i.try(:group).try(:user) == user || i.group.nil?)
     end
     
     can :modify, :search

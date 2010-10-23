@@ -16,31 +16,59 @@
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_group_path(@group), :class => "button" %> 
         <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", group_path(@group), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>  
-		  	<h1>Contatos</h1>
-		    <table class="table">
+			<% if @group.invites.size > 0 %>
+	  		<h1>Convites Pendentes</h1>
+	    	<table class="table">
 		      <tr>             
 		        <th>Nome</th>
-						<th>Descrição</th>
-						<th>Informação</th>
+						<th>Login</th>
+						<th>Contato</th>
 		        <th class="last">&nbsp;</th>
 		      </tr>
-		        <% @group.contacts.each do |contact| -%>
-		        <tr class="<%= cycle("odd", "even") %>">
-							<td>
-								<%= contact.user.name %>
-							</td>
-							<td>
-		            <%= contact.description %>
-		          </td>
-							<td>
-								<%= contact.info %>
-							</td>
-		          <td class="last">
-								&nbsp;
-		          </td>
-		        </tr>
-		        <% end -%>
-		    </table>    
+	        <% @group.invites.each do |invite| -%>
+	        <tr class="<%= cycle("odd", "even") %>">
+						<td>
+							<%= invite.contact.user.name %>
+						</td>
+						<td>
+	            <%= invite.contact.user.login %>
+	          </td>
+						<td>
+							<%= invite.contact.info %>
+						</td>
+	          <td class="last">
+							<%= link_to "#{t("web-app-theme.approve", :default => "Approve")}", "/contacts/#{invite.contact.id}/invites/#{invite.id}?status=approve", :method => :put %> | 
+							<%= link_to "#{t("web-app-theme.disapprove", :default => "Disapprove")}", [invite.contact, invite], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+	          </td>
+	        </tr>
+	        <% end -%>
+				</table>
+			<% end %>
+	  	<h1>Contatos</h1>
+	    <table class="table">
+	      <tr>             
+	        <th>Nome</th>
+					<th>Descrição</th>
+					<th>Informação</th>
+	        <th class="last">&nbsp;</th>
+	      </tr>
+	        <% @group.contacts.each do |contact| -%>
+	        <tr class="<%= cycle("odd", "even") %>">
+						<td>
+							<%= contact.user.name %>
+						</td>
+						<td>
+	            <%= contact.description %>
+	          </td>
+						<td>
+							<%= contact.info %>
+						</td>
+	          <td class="last">
+							&nbsp;
+	          </td>
+	        </tr>
+	        <% end -%>
+	    </table> 
     </div>
   </div>
 </div>

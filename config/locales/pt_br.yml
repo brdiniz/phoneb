@@ -7,6 +7,8 @@ pt_br:
     new: Criar
     show: Exibir
     delete: Excluir
+    approve: Aprovar
+    disapprove: Reprovar
     confirm: Você tem certeza?
     created_at: Criado em
     all: Lista de
