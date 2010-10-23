@@ -1,4 +1,4 @@
-class InvitesController < InheritedResources::Base
+class InvitesController < ApplicationController
   load_and_authorize_resource :nested => [:contact]
   
   before_filter :find_parents, :login_required, :find_current_user
@@ -18,22 +18,19 @@ class InvitesController < InheritedResources::Base
   end
   
   def update
-    g = @invite.group
     @invite.status = params[:status] if params[:status]
     if @invite.save
       @invite.destroy if @invite.status == "approve"
       flash[:notice] = 'Alteração de Convite realizada com sucesso!'
-      redirect_to [g]
+      redirect_to [@group]
     end
   end
   
-  def delete
-    delete! do |format|
-      format.html { redirect_to [@invite.group] }
+  def destroy
+    if @invite.destroy
+      flash[:notice] = 'Exclusão de Convite realizada com sucesso!'
+      redirect_to [@group]
     end
-  rescue Exception => e
-    flash[:error] = e.message
-    redirect_to(@invite.group)
   end
   
   private
@@ -41,5 +38,6 @@ class InvitesController < InheritedResources::Base
     @group = Group.find(params[:group_id]) if params[:group_id]
     @contact = Contact.find(params[:contact_id]) if params[:contact_id]
     @invite = Invite.find(params[:id]) if params[:id]
+    @group = @invite.group unless @group
   end
 end

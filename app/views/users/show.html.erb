@@ -23,7 +23,7 @@
 		      </tr>
 		      <% @contacts.each do |contact| -%>
 		      <tr class="<%= cycle("odd", "even") %>">
-						<td><%= contact.user.name %></td>
+						<td><%= link_to contact.user.name, "http://twitter.com/#{contact.user.login}", {:target => "_blank" } %></td>
 						<td><%= contact.description %></td>
 						<td class="last"><%= link_to contact.info, contact %></td>
 		      </tr>          

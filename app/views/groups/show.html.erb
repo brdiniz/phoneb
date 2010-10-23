@@ -19,20 +19,18 @@
 			<% if @group.invites.size > 0 %>
 	  		<h1>Convites Pendentes</h1>
 	    	<table class="table">
-		      <tr>             
+		      <tr>           
+		        <th class="first">&nbsp;</th>  
 		        <th>Nome</th>
-						<th>Login</th>
 						<th>Contato</th>
 		        <th class="last">&nbsp;</th>
 		      </tr>
 	        <% @group.invites.each do |invite| -%>
 	        <tr class="<%= cycle("odd", "even") %>">
+						<td><%= image_tag invite.contact.user.profile_image_url %></td>
 						<td>
-							<%= invite.contact.user.name %>
+							<%= link_to invite.contact.user.name, "http://twitter.com/#{invite.contact.user.login}", {:target => "_blank" } %>
 						</td>
-						<td>
-	            <%= invite.contact.user.login %>
-	          </td>
 						<td>
 							<%= invite.contact.info %>
 						</td>
