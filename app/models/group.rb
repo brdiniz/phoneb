@@ -7,10 +7,4 @@ class Group < ActiveRecord::Base
   validates_uniqueness_of :name
   
   attr_accessor :phone
-  after_save :associate_phone
-  
-  def associate_phone
-    return true
-    phones << phone
-  end
 end

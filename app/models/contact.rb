@@ -14,5 +14,6 @@ class Contact < ActiveRecord::Base
     
   named_scope :startwith, lambda { |alphabet| 
     {:joins => :user, 
+    :order => 'users.name, contacts.info',
     :conditions => ["users.name LIKE ?", "#{alphabet}%"] }}
 end

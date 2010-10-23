@@ -28,6 +28,12 @@ Spec::Runner.configure do |config|
       current_user = User.first
     end
   end
+  
+  class ApplicationController
+    def current_user
+      User.first
+    end
+  end
 
   # == Fixtures
   #

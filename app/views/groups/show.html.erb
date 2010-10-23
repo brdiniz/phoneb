@@ -62,7 +62,7 @@
 							<%= contact.info %>
 						</td>
 	          <td class="last">
-							&nbsp;
+							<%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", "#", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
 	          </td>
 	        </tr>
 	        <% end -%>
