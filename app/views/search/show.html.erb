@@ -17,12 +17,12 @@
 		    <% @results.each do |key| %>
 					<tr class="<%= cycle("odd", "even") %>">
 						<td>
-			        <%= link_to "Grupo: #{key.name}", [key.user, key] %>
+			        <%= link_to "Grupo: #{key.name}", [key] %>
 			         <br/>
 			         <span style="color: #8C8C8C; font-size: 0.9em; font-style: italic;">Descrição: <%= key.name %><br> Quantidade de contatos (<%= key.contacts.size.to_s %>)</span>
 						</td>
 						<td class="last">
-							<%= link_to "Associar", new_user_group_invite_path(key.user, key) %>
+							<%= link_to "Associar", new_group_invite_path(key) %>
 						</td>
 					</tr>
 		     <% end %>

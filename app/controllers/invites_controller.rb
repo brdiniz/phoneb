@@ -10,7 +10,7 @@ class InvitesController < InheritedResources::Base
     respond_to do |wants|
       if @invite.save
         flash[:notice] = 'Criação de Convite realizada com sucesso!'
-        wants.html { redirect_to([@contact, @invite]) }
+        wants.html { redirect_to([@invite.contact, @invite]) }
       else
         wants.html { render :action => "new" }
       end
