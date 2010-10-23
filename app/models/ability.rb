@@ -9,7 +9,7 @@ class Ability
     can :basic, :group
 
     can :modify, Group do |group|
-      !group || group.user == user
+      !group || (group.try(:user) == user || group.user.nil?)
     end
     
     can :modify, Contact do |contact|

@@ -9,12 +9,7 @@ Feature: Manage search
 		When I am on the homepage
     And I fill in "search_text" with "group_search-1"
 		And I press "Buscar"
-		And I should see "Resultado da Busca"
+		Then I should see "Resultado da Busca"
 		And I should see "Grupo: group_search-10"
-		And I should see "Grupo: group_search-12"
-		And I follow "group_search-10"
-	  Then I should see "Grupos"
-		And I should see "Alterar"
-	
-	
+		And I should see "Grupo: group_search-12"	
 	

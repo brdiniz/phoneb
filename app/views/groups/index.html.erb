@@ -1,7 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.name, root_path  %></li>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
   		<li class="active"><%= link_to "Grupos", "#" %></li>
     </ul>
   </div>
@@ -21,15 +21,15 @@
         <% @groups.each do |group| -%>
         <tr class="<%= cycle("odd", "even") %>">
 					<td>
-						<%= link_to group.name, user_group_path(@user, group) %>
+						<%= link_to group.name, group %>
 					</td>
 					<td>
             <%= group.contacts.size %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", [@user, group] %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_group_path(@user, group) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", [@user, group], :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", group %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_group_path(group) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", group, :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
         </tr>          
         <% end -%>

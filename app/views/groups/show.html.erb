@@ -1,8 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.name, root_path  %></li>
-  		<li><%= link_to "Grupos", user_groups_path %></li>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
+  		<li><%= link_to "Grupos", groups_path %></li>
       <li class="active"><%= link_to @group.name, "#" %></li>
     </ul>
   </div>          
@@ -13,8 +13,8 @@
           <%= @group.name %>
         </p>
       <div class="wat-cf">
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_group_path(@user, @group), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", user_group_path(@user, @group), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_group_path(@group), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", group_path(@group), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>  
 		  	<h1>Contatos</h1>
 		    <table class="table">

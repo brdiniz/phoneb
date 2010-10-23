@@ -1,15 +1,15 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to @user.name, root_path  %></li>
-  		<li><%= link_to "Grupos", user_groups_path %></li>
+      <li class="first"><%= link_to @current_user.name, root_path  %></li>
+  		<li><%= link_to "Grupos", groups_path %></li>
       <li class="active"><%= link_to "Criar Grupo", "#" %></li>
     </ul>
   </div>          
   <div class="content">            
     <h2 class="title"></h2>
     <div class="inner">
-      <% form_for :group, :url => user_groups_path(@user), :html => { :class => :form } do |f| -%>
+      <% form_for :group, :url => groups_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>
