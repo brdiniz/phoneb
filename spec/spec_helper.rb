@@ -24,17 +24,18 @@ Spec::Runner.configure do |config|
   config.global_fixtures = :all
   
   share_examples_for "authenticated controller" do
-    before(:each) do
-      current_user = User.first
-    end
-  end
-  
-  class ApplicationController
     def current_user
       User.first
     end
+    
+    before(:all) do
+      current_user = User.first
+    end
+    
+    before(:each) do
+    end
   end
-
+  
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:

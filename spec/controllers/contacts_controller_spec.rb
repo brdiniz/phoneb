@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ContactsController do
+  it_should_behave_like "authenticated controller"
   
   it "create contact with valid params" do
     mock = Factory(:contact)
