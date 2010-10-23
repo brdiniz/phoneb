@@ -17,7 +17,11 @@
 		    <% @results.each do |key| %>
 					<tr class="<%= cycle("odd", "even") %>">
 						<td>
+							<% if can? :show, key %>
 			        <%= link_to "Grupo: #{key.name}", [key] %>
+							<% else %>
+			        <%= "Grupo: #{key.name}" %>
+							<% end %>
 			         <br/>
 			         <span style="color: #8C8C8C; font-size: 0.9em; font-style: italic;">Descrição: <%= key.name %><br> Quantidade de contatos (<%= key.contacts.size.to_s %>)</span>
 						</td>
